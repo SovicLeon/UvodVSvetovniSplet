@@ -1,0 +1,405 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    src: url(OpenSans/OpenSans-Regular.ttf) format('truetype');
+}
+
+* 
+{
+    box-sizing: border-box;
+}
+
+body, html 
+{
+    margin: 0px;
+    background-color: gray;
+    font-family: 'Open Sans';
+}
+
+header
+{
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+}
+
+header h1
+{
+    background-color: black;
+    color: orange;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+header nav
+{
+    background-color: orange;
+    list-style-type: none;
+    list-style: none;
+    padding-left: 0;
+}
+
+header nav ul
+{
+    padding-left: 0; 
+    margin: 0;
+}
+
+header nav ul li
+{
+    list-style-type: none;
+    list-style: none;
+    display: inline-block;
+}
+
+header nav ul li a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+header nav ul li a:hover
+{
+    background-color: darkorange;
+}
+
+.vsebina
+{
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.kartica
+{
+    background-color: darkgray;
+    color: whitesmoke;
+    margin: 1%;
+}
+
+.kartica h2 
+{
+    padding: 10px;
+    background-color: orange;
+    color: lightcyan;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.kartica figure img
+{
+    width: 100%;
+    
+}
+
+.kartica figure
+{
+    margin: 0;
+}
+
+.kartica figure figcaption
+{
+    text-align: center;
+}
+
+.ena{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.kartica video
+{
+    width: 100%;
+}
+
+.kartica p 
+{
+    margin: 10px;
+}
+
+.izdelek h3
+{
+    padding: 10px;
+    margin: 0px;
+    height: 40px;
+    background-color: orange;
+    color: lightcyan;
+    text-align: center;
+}
+
+.izdelek img
+{
+    width: 100%;
+    max-height: 200px;
+    margin: 0px;
+    height: auto;
+    object-fit: cover;
+}
+
+.izdelek .opis
+{
+    margin: 0px;
+    padding: 5px;
+    height: 160px;
+    overflow: auto;
+}
+
+.izdelek .opis p
+{
+    margin: 0;
+}
+
+.izdelek
+{
+    width: 31%;
+    height: 400px;
+    float: left;
+    overflow-y: hidden;
+}
+
+.vsebina
+{
+    height: 80%;
+    width: 100%;
+}
+
+.obrazec
+{
+    padding: 10px;
+}
+
+.obrazec .oznaka
+{
+    display: inline-block;
+    width: 180px;
+}
+
+.obrazec input[type=text]
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: inline-block;
+    border-radius: 8px;
+    border: 2px solid gray;
+}
+
+.obrazec input[type=text]:focus
+{   
+    outline-color: orange;
+}
+
+.obrazec textarea
+{
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid gray;
+}
+
+.obrazec textarea:focus
+{   
+    outline-color: orange;
+}
+
+.obrazec input[type=submit]
+{   
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    outline: none;
+    border: 0px;
+    border-radius: 5px;
+    background-color: orange;
+    color: white;
+}
+
+.obrazec input[type=submit]:hover
+{
+    background-color: darkorange;
+    cursor: pointer;
+}
+
+.radio-gumb {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio-gumb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.pika {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #8f8f8f;
+    border-radius: 50%;
+}
+
+.radio-gumb:hover input ~ .pika {
+    background-color: rgb(228, 228, 228);
+}
+
+.radio-gumb input:checked ~ .pika {
+    background-color: orange;
+}
+
+.pika:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-gumb input:checked ~ .pika:after {
+    display: block;
+}
+
+.radio-gumb .pika:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.checkbox-gumb {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+.checkbox-gumb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.kljukica {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #858585;
+}
+  
+.checkbox-gumb:hover input ~ .kljukica {
+    background-color: rgb(228, 228, 228);
+}
+  
+.checkbox-gumb input:checked ~ .kljukica {
+    background-color: orange;
+}
+  
+.kljukica:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.checkbox-gumb input:checked ~ .kljukica:after {
+    display: block;
+}
+  
+.checkbox-gumb .kljukica:after {
+    left: 6.5px;
+    top: 2.7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+@media only screen and (max-width: 600px) {
+    .kartica
+    {
+        margin: 0;
+    }
+
+    .izdelek
+    {
+        width: 100%;
+    }
+
+    nav ul li
+    {
+        width: 100%;
+    }
+
+    .radio-gumb
+    {
+        display: inline-block;
+        width: 100%;
+        
+    }
+
+    .checkbox-gumb
+    {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .oznaka
+    {
+        margin-top: 10px;
+    }
+
+    .izdelek
+    {
+        margin-top: 1%;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+    .izdelek
+    {
+        width: 48%;
+    }
+
+    .obrazec input[type=radio]
+    {
+        width: 100%;
+    }
+
+    .obrazec input[type=checkbox]
+    {
+        width: 100%;
+    }
+}

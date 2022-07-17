@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="Sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Uvod v svetovni splet Vaja3">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="author" content="Leon Sovič">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svetovanje</title>
+</head>
+<body>
+    <header>
+        <h1>Leonova spletna stran</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="izdelki.html">Izdelki</a></li>
+                <li><a href="svetovanje.html">Svetovanje</a></li>
+                <li><a href="https://estudij.um.si">Vaje</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Svetovanje</h2>
+        <form action="svetovanje.html" method="GET">
+            <h2>Kontaktni podatki:</h2>
+            <table>
+                <tr>
+                    <td><label for="ime">Ime in priimek: </label></td>
+                    <td><input type="text" name="imeINpriimek" id="ime"></td>
+                </tr>
+                <tr>
+                    <td><label for="kraj">Kraj: </label></td>
+                    <td>
+                        <input type="text" list="kraji" autocomplete="on" name="kraj" id="kraj">
+                        <datalist id="kraji">
+                            <option value="Ljubljana">
+                            <option value="Maribor">
+                            <option value="Celje">
+                            <option value="Kranj">
+                            <option value="Koper">
+                        </datalist>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Elektronska pošta: </label></td>
+                    <td><input type="text" name="eNaslov" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="vrsta1">Vrsta računalnika: </label></td>
+                    <td>
+                        <input type="radio" id="vrsta1" name="vrsta" value="Namizni">
+                        <label for="vrsta1">Namizni</label>
+                        <input type="radio" id="vrsta2" name="vrsta" value="Prenosni">
+                        <label for="vrsta2">Prenosni</label>
+                        <input type="radio" id="vrsta3" name="vrsta" value="All-In-One">
+                        <label for="vrsta3">All-In-One</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="namen1">Namen uporabe: </label></td>
+                    <td>
+                        <input type="checkbox" name="namen1" id="namen1">
+                        <label for="namen1">Igranje iger</label>
+                        <input type="checkbox" name="namen2" id="namen2">
+                        <label for="namen2">Video obdelava</label>
+                        <input type="checkbox" name="namen3" id="namen3">
+                        <label for="namen3">3D modeliranje</label>
+                        <input type="checkbox" name="namen4" id="namen4">
+                        <label for="namen4">Strojno učenje</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="komentar">Komentar</label></td>
+                    <td><textarea name="komentar" id="komentar" cols="60" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Pošlji"></td>
+                </tr>
+            </table>
+            
+            
+            
+            
+            
+            
+        </form>
+    </main>
+</body>
+</html>

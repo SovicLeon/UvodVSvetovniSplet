@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Moja spletna stran</h1>
+		<nav>
+				<ul>
+					<li><a href="index.html">Domov</a></li>
+					<li><a href="izdelki.html">Izdelki</a></li>
+					<li><a href="svetovanje.html">Svetovanje</a></li>
+					<li><a href="http://estudij.um.si">Vaje</a></li>
+				</ul>
+		</nav>
+	</header>
+
+	<div class="vsebina">
+		<div class="kartica">
+			<h2>Anketa</h2>
+			<form class="obrazec">
+				<label class="oznaka">Ime in priimek:</label><input type="text"/><br/>
+				<label class="oznaka">Kraj:</label><input type="text"/><br/>
+				<label class="oznaka">Elektronska pošta:</label><input type="text"/><br/>
+				<label class="oznaka">Vrsta računalnika:</label>
+					<label class="radio-gumb" for="namizni"><input type="radio" name="vrsta" id="namizni" class="checkmark">Namizni<span class="pika"></span></label>
+					<label class="radio-gumb" for="prenosni"><input type="radio" name="vrsta" id="prenosni">Prenosni<span class="pika"></span></label>
+					<label class="radio-gumb" for="allinone"><input type="radio" name="vrsta" id="allinone">All-In-One<span class="pika"></span></label>
+				<br/>
+				<label class="oznaka">Namen uporabe:</label>
+					<label class="checkbox-gumb" for="igre"><input name="namen" type="checkbox" id="igre">Igranje iger<span class="kljukica"></label>
+					<label class="checkbox-gumb" for="video"><input name="namen" type="checkbox" id="video">Video obdelava<span class="kljukica"></label>
+					<label class="checkbox-gumb" for="3d"><input name="namen" type="checkbox" id="3d">3D modeliranje<span class="kljukica"></label>
+					<label class="checkbox-gumb" for="ml"><input name="namen" type="checkbox" id="ml">Strojno učenje<span class="kljukica"></label>
+				<br/>
+				<label class="oznaka">Komentar:</label><textarea></textarea><br/>
+				<input type="submit" value="Pošlji"/>
+			</form>
+		</div>
+	<div id="content">
+</body>
+</html>

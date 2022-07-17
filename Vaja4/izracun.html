@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .zelen
+        {
+            color: green;
+            font-weight: bold;
+        }
+
+        .rdec
+        {
+            color: red;
+            font-weight: bold;
+        }
+        
+    </style>
+    <script>
+        function pisi (nekaj) {
+            document.write(nekaj);
+        }
+
+        function pozNeg (stevilo) {
+            if (stevilo >= 0) {
+                document.write("<span class=\"zelen\">"+stevilo+"</span>");
+            } else if (stevilo < 0) {
+                document.write("<span class=\"rdec\">"+stevilo+"</span>");
+            }
+        }
+
+        var st1 = window.prompt("Vnesite prvo število");
+        var st2 = window.prompt("Vnesite drugo število");
+
+        /*var st1 = parseFloat(vpis1);
+        var st2 = parseFloat(vpis2);*/
+
+        function ifNeg (a,b) {
+            if (isNaN(st1) || isNaN(st2)) {
+                document.write("<span>isNaN</span>");
+                return false;
+            } else {
+                st1 = parseInt(st1);
+                st2 = parseInt(st2);
+                return true;
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <script>
+        if (ifNeg(st1,st2)) {
+            pisi("<span>A: </span>");
+            pozNeg(st1);
+            pisi("<br>");
+            pisi("<span>B: </span>");
+            pozNeg(st2);
+            pisi("<br>");
+            pisi("<span>Vsota: </span>");
+            pozNeg(st1+st2);
+            pisi("<br>");
+            pisi("<span>Razlika: </span>");
+            pozNeg(st1-st2);
+            pisi("<br>");
+            pisi("<span>Mnozenje: </span>");
+            pozNeg(st1*st2);
+            pisi("<br>");
+            pisi("<span>Deljenje: </span>");
+            if (st2==0) pisi("<br><span>ni izvedljivo</span>"); 
+            else pozNeg(st1/st2);
+            pisi("<br>");
+            pisi("<span>Ostanek: </span>");
+            if (st2==0) pisi("<br><span>ni izvedljivo</span>");
+            else pozNeg(st1%st2);
+            pisi("<br>");
+            if (st1 > st2) {
+                pisi("<span>A je večji od B</span>");
+            } else if (st1 < st2) {
+                pisi("<span>A je manjši od B</span>");
+            } else pisi("<span>A je enak B</span>");
+        }
+    </script>
+
+</body>
+</html>

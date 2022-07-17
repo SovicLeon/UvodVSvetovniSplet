@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td > span
+        {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="obrazec.html" method="GET">
+        <table>
+            <tr>
+                <td><label for="ime">Uporabniško ime: </label></td>
+                <td><input id="ime" type="text" name="ime"></td>
+                <td><span id="imeErr">*</span></td>
+            </tr>
+            <tr>
+                <td><label for="email">E-pošta: </label></td>
+                <td><input id="email" type="text" name="email"></td>
+                <td><span id="emailErr">*</span></td>
+            </tr>
+            <tr>
+                <td><label for="geslo1">Geslo: </label></td>
+                <td><input id="geslo1" type="password" name="geslo1"></td>
+                <td><span id="geslo1Err">*</span></td>
+            </tr>
+            <tr>
+                <td><label for="geslo2">Ponovi geslo: </label></td>
+                <td><input id="geslo2" type="password" name="geslo2"></td>
+                <td><span id="geslo2Err">*</span></td>
+            </tr>
+            <tr>
+                <td>Spol: </td>
+                <td>
+                    <input id="m" type="radio" value="moški" name="spol"><label for="m">moški</label>
+                    <input id="z" type="radio" value="moški" name="spol"><label for="z">ženski</label>
+                </td>
+                <td><span id="spolErr">*</span></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="submit" value="Pošlji" id="submit"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        // ime
+        var ime = document.getElementById("ime");
+        var imeErr = document.getElementById("imeErr");
+
+        var imena = ['janez', 'ivan', 'marija', 'rok', 'leon'];
+
+        ime.addEventListener("input", validateIme);
+        
+        function validateIme() {
+            let imeV = ime.value.trim().toLowerCase();
+            if (imeV=="") {
+                imeErr.innerHTML = "Polje mora biti izpolnjeno!";
+            } else if (imeV.length<3||imeV.length>20) {
+                imeErr.innerHTML = "Dolžina imena je najmanj 3 in največ 20.";
+                return false;
+            } else if (imena.indexOf(imeV)>=0) {
+                imeErr.innerHTML = "Ime je že uporabljeno.";
+                return false;
+            } else {
+                imeErr.innerHTML = "";
+                return true;
+            }
+        }
+
+        // email
+        var email = document.getElementById("email");
+        var emailErr = document.getElementById("emailErr");
+
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		// vir: http://zparacha.com/validate-email-address-using-javascript-regular-expression
+		
+        email.addEventListener("input", validateEmail);
+
+        function validateEmail() {
+            if (email.value.trim()=="") {
+                emailErr.innerHTML = "Polje mora biti izpolnjeno!";
+            } else if (!emailRegex.test(email.value)) {
+                emailErr.innerHTML = "Ni dovoljen email!";
+                return false;
+            } else {
+                emailErr.innerHTML = "";
+                return true;
+            }
+        }
+
+        // geslo1
+        var geslo1 = document.getElementById("geslo1");
+        var geslo1Err = document.getElementById("geslo1Err");
+
+        var mala = /[a-z]/, velika = /[A-Z]/, stevilka = /[0-9]/;
+
+        geslo1.addEventListener("input", validateGeslo1);
+
+        function validateGeslo1() {
+            validateGeslo2();
+            let geslo1V = geslo1.value.trim();
+            if (geslo1V=="") {
+                geslo1Err.innerHTML = "Polje mora biti izpolnjeno!";
+                return false;
+            } else if (geslo1V.length<6) {
+                geslo1Err.innerHTML = "Geslo mora biti doljgo vsaj 6 znakov!";
+                return false;
+            } else if (!mala.test(geslo1V)) {
+                geslo1Err.innerHTML = "Ni male začetnice!";
+                return false;
+            } else if (!velika.test(geslo1V)) {
+                geslo1Err.innerHTML = "Ni velike začetnice!";
+                return false;
+            } else if (!stevilka.test(geslo1V)) {
+                geslo1Err.innerHTML = "Ni števke!";
+                return false;
+            } else {
+                geslo1Err.innerHTML = "";
+                return true;
+            }
+        }
+
+        // geslo2
+        var geslo2 = document.getElementById("geslo2");
+        var geslo2Err = document.getElementById("geslo2Err");
+
+        geslo2.addEventListener("input", validateGeslo2);
+
+        function validateGeslo2() {
+            let geslo2V = geslo2.value.trim();
+            if (geslo2V=="") {
+                geslo2Err.innerHTML = "Polje mora biti izpolnjeno!";
+                return false;
+            } else if (geslo1.value.trim()!=geslo2V) {
+                geslo2Err.innerHTML = "Gesli nista enaki!";
+                return false;
+            } else {
+                geslo2Err.innerHTML = "";
+                return true;
+            }
+        }
+
+        // spol
+        var spol1 = document.getElementById("m");
+        var spol2 = document.getElementById("z");
+        var spolErr = document.getElementById("spolErr");
+
+        spol1.addEventListener("change", validateSpol);
+        spol2.addEventListener("change", validateSpol);
+
+        function validateSpol() {
+            if (!spol1.checked&&!spol2.checked) {
+                spolErr.innerHTML = "Mora biti izbrano!";
+                return false;
+            } else {
+                spolErr.innerHTML = "";
+                return true;
+            }
+        }
+
+        // submit
+        var submit = document.getElementById("submit");
+
+        submit.addEventListener("click", function (e) {
+            let imeS = validateIme();
+            let emailS = validateEmail();
+            let geslo1S = validateGeslo1();
+            let geslo2S = validateGeslo2();
+            let spolS = validateSpol();
+            if (!ime||!emailS||!geslo1S||!geslo2S||!spolS) {
+                e.preventDefault();
+            }
+        });
+
+    </script>
+
+</body>
+</html>
